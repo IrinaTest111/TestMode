@@ -24,17 +24,15 @@ jobs:
 
       - name: Start SUT
         run: |
-          # Проверяем существование jar-файла
           if [ -f ./artifacts/app-ibank-delivery.jar ]; then
             java -jar ./artifacts/app-ibank-delivery.jar -P:profile=test &
           elif [ -f ./artifacts/app-ibank.jar ]; then
             java -jar ./artifacts/app-ibank.jar -P:profile=test &
           else
-            echo "ERROR: No jar file found in artifacts folder"
+            echo "ERROR: No jar file found"
             exit 1
           fi
           sleep 10
-          echo "SUT started"
 
       - name: Run API tests only
         run: ./gradlew test --tests "*ApiTest"
