@@ -28,5 +28,10 @@ dependencies {
 
 test {
     useJUnitPlatform()
-    systemProperty 'selenide.headless', System.getProperty('selenide.headless')
+    exclude '**/AuthTest.class'
+    task uiTest(type: Test) {
+        useJUnitPlatform()
+        include '**/AuthTest.class'
+        systemProperty 'selenide.headless', 'false'
+    }
 }
