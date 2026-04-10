@@ -43,3 +43,6 @@ out/
 !gradle/wrapper/gradle-wrapper.jar
 !**/src/main/**
 !**/src/test/**
+
+# Исключение для jar-файла банка (нужен для CI)
+!artifacts/app-ibank.jar
