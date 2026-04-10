@@ -35,4 +35,4 @@ jobs:
           sleep 10
 
       - name: Run API tests only
-        run: ./gradlew test --tests "*ApiTest"
+        run: ./gradlew test --tests "*AuthTest"

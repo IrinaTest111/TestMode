@@ -28,7 +28,7 @@ dependencies {
 
 test {
     useJUnitPlatform()
-    exclude '**/AuthTest.class'
+
     task uiTest(type: Test) {
         useJUnitPlatform()
         include '**/AuthTest.class'
