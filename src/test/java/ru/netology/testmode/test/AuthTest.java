@@ -16,6 +16,7 @@ import static ru.netology.testmode.data.DataGenerator.getRandomPassword;
 
 class AuthTest {
 
+
     @BeforeAll
     static void setupAll() {
     }
@@ -90,6 +91,7 @@ class AuthTest {
         $("[data-test-id='error-notification'] .notification__content")
                 .shouldHave(exactText("Ошибка! Неверно указан логин или пароль"));
     }
+
     //время, затраченное на ручное тестирование (минут): 30;
-    //время, затраченное на автоматизацию (минут): ~ 300;
+    //время, затраченное на автоматизацию (минут): 300;
 }

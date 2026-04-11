@@ -23,9 +23,18 @@ jobs:
         run: chmod +x gradlew
 
       - name: Start SUT
+<<<<<<< HEAD
       - name: Start SUT
         run: java -jar ./artifacts/app-ibank.jar -P:profile=test &
           sleep 2
 
       - name: Run API tests only
         run: ./gradlew test --tests "*AuthTest" -Dselenide.headless=true --info
+=======
+        run: |
+          java -jar ./artifacts/app-ibank.jar -P:profile=test &
+          sleep 2
+
+      - name: Run API tests only
+        run: ./gradlew test --tests "*AuthTest" -Dselenide.headless=true
+>>>>>>> 06931532410694b4fb6847e8f48760085b1b73bb
