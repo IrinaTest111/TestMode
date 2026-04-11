@@ -24,7 +24,7 @@ jobs:
 
       - name: Start SUT
         run: |
-          java -jar ./artifacts/app-ibank-delivery.jar -P:profile=test &
+          java -jar ./artifacts/app-ibank.jar -P:profile=test &
           sleep 2
 
       - name: Run API tests only
