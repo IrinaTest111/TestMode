@@ -1,10 +1,12 @@
 package ru.netology.testmode.test;
 
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import static com.codeborne.selenide.Condition.exactText;
+import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
 import static ru.netology.testmode.data.DataGenerator.Registration.getRegisteredUser;
@@ -13,6 +15,10 @@ import static ru.netology.testmode.data.DataGenerator.getRandomLogin;
 import static ru.netology.testmode.data.DataGenerator.getRandomPassword;
 
 class AuthTest {
+
+    @BeforeAll
+    static void setupAll() {
+    }
 
     @BeforeEach
     void setup() {
@@ -28,7 +34,7 @@ class AuthTest {
         $("[data-test-id='password'] input").setValue(registeredUser.getPassword());
         $("[data-test-id='action-login']").click();
 
-        $("[id='root']").shouldHave(exactText("Личный кабинет"));
+        $("[id='root']").shouldBe(visible).shouldHave(exactText("Личный кабинет"));
     }
 
     @Test

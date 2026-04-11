@@ -23,16 +23,9 @@ jobs:
         run: chmod +x gradlew
 
       - name: Start SUT
-        run: |
-          if [ -f ./artifacts/app-ibank-delivery.jar ]; then
-            java -jar ./artifacts/app-ibank-delivery.jar -P:profile=test &
-          elif [ -f ./artifacts/app-ibank.jar ]; then
-            java -jar ./artifacts/app-ibank.jar -P:profile=test &
-          else
-            echo "ERROR: No jar file found"
-            exit 1
-          fi
-          sleep 10
+      - name: Start SUT
+        run: java -jar ./artifacts/app-ibank.jar -P:profile=test &
+          sleep 2
 
       - name: Run API tests only
-        run: ./gradlew test --tests "*ApiTest"
+        run: ./gradlew test --tests "*AuthTest" -Dselenide.headless=true --info
