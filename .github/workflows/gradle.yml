@@ -28,4 +28,4 @@ jobs:
           sleep 2
 
       - name: Run API tests only
-        run: ./gradlew test --tests "*AuthTest" -Dselenide.headless=true --info
+        run: ./gradlew test --tests "*AuthTest" -Dselenide.headless=true
