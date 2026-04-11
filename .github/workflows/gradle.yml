@@ -19,22 +19,23 @@ jobs:
           java-version: '11'
           distribution: 'temurin'
 
+      - name: Setup Chrome
+        uses: browser-actions/setup-chrome@v1
+
       - name: Grant execute permission for gradlew
         run: chmod +x gradlew
 
       - name: Start SUT
-<<<<<<< HEAD
-      - name: Start SUT
-        run: java -jar ./artifacts/app-ibank.jar -P:profile=test &
-          sleep 2
+        run: |
+          java -jar ./artifacts/app-ibank.jar -P:profile=test &
+          sleep 5
 
       - name: Run API tests only
         run: ./gradlew test --tests "*AuthTest" -Dselenide.headless=true --info
-=======
-        run: |
-          java -jar ./artifacts/app-ibank.jar -P:profile=test &
-          sleep 2
 
-      - name: Run API tests only
-        run: ./gradlew test --tests "*AuthTest" -Dselenide.headless=true
->>>>>>> 06931532410694b4fb6847e8f48760085b1b73bb
+      - name: Upload test reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: test-reports
+          path: build/reports/tests/test/
