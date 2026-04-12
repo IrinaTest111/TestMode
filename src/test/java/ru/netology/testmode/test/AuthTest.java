@@ -48,6 +48,7 @@ class AuthTest {
         $("[data-test-id='action-login']").click();
 
         $("[data-test-id='error-notification'] .notification__content")
+                .shouldBe(visible)
                 .shouldHave(exactText("Ошибка! Неверно указан логин или пароль"));
     }
 
@@ -61,6 +62,7 @@ class AuthTest {
         $("[data-test-id='action-login']").click();
 
         $("[data-test-id='error-notification'] .notification__content")
+                .shouldBe(visible)
                 .shouldHave(exactText("Ошибка! Пользователь заблокирован"));
     }
 
@@ -75,6 +77,7 @@ class AuthTest {
         $("[data-test-id='action-login']").click();
 
         $("[data-test-id='error-notification'] .notification__content")
+                .shouldBe(visible)
                 .shouldHave(exactText("Ошибка! Неверно указан логин или пароль"));
     }
 
@@ -89,6 +92,7 @@ class AuthTest {
         $("[data-test-id='action-login']").click();
 
         $("[data-test-id='error-notification'] .notification__content")
+                .shouldBe(visible)
                 .shouldHave(exactText("Ошибка! Неверно указан логин или пароль"));
     }
 
